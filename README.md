@@ -1,2 +1,2 @@
-# Allerlens-private
+# Allerlens-waitlist
 
