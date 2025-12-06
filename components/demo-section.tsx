@@ -58,13 +58,14 @@ export function DemoSection() {
             </div>
 
             {/* Screenshot 3 */}
-            <div className="relative flex flex-col items-center">
+            <div className="relative flex flex-col items-center gap-4">
               <div className="relative rounded-3xl overflow-hidden bg-card border border-border shadow-xl w-full max-w-[300px] md:max-w-[350px]">
                 <div className="bg-muted flex items-center justify-center">
                   <img
                     src="/screenshot-3.png"
                     alt="AllerLens screenshot 3"
                     className="w-full h-auto object-contain"
+                    loading="lazy"
                   />
                 </div>
               </div>
