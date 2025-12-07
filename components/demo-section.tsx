@@ -2,7 +2,7 @@ import { ArrowRight, ArrowDown } from "lucide-react"
 
 export function DemoSection() {
   return (
-    <section id="demo" className="py-20 bg-secondary/50">
+    <section id="see-it-in-action" className="py-20 bg-secondary/50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4 text-balance">See it in action</h2>
