@@ -13,11 +13,7 @@ export async function GET(req: Request) {
   }
 
   try {
-    await sql`
-      UPDATE waitlist
-      SET status = 'unsubscribed', unsubscribed_at = NOW(), unsubscribed = TRUE
-      WHERE id = ${id} AND email = ${email}
-    `;
+    await sql`DELETE FROM waitlist WHERE id = ${id} AND email = ${email}`;
 
     return NextResponse.redirect(new URL('/unsubscribe?success=1', APP_URL));
   } catch (error) {
@@ -34,12 +30,7 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Email required' }, { status: 400 });
     }
 
-    // Since we only have email from the manual form, we update by email
-    await sql`
-      UPDATE waitlist 
-      SET status = 'unsubscribed', unsubscribed_at = NOW(), unsubscribed = TRUE
-      WHERE email = ${email}
-    `;
+    await sql`DELETE FROM waitlist WHERE email = ${email}`;
 
     return NextResponse.json({ ok: true });
   } catch (error) {
