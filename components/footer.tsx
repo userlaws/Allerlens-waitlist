@@ -1,3 +1,4 @@
+import Link from "next/link"
 import { Scan } from "lucide-react"
 import { Twitter, Instagram, Linkedin } from "lucide-react"
 
@@ -14,9 +15,9 @@ export function Footer() {
           </div>
 
           <nav className="flex flex-wrap items-center justify-center gap-6 text-sm">
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
+            <Link href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
               Privacy Policy
-            </a>
+            </Link>
             <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
               Terms of Service
             </a>
