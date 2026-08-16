@@ -17,140 +17,148 @@ export default function PrivacyPage() {
           AllerLens Privacy Policy
         </h1>
         <p className="text-sm text-muted-foreground mb-8">
-          Last updated: July 2026
+          Last updated: August 2026
         </p>
 
         <p className="text-muted-foreground leading-relaxed mb-6">
-          AllerLens helps you scan restaurant menus and understand allergen
-          risks based on your personal allergen profile. This policy explains
-          what data the app handles and where it goes.
+          AllerLens (&quot;we&quot;, &quot;our&quot;, or the app) is a
+          menu-scanning app that helps you identify allergens and translate
+          menu items. This policy describes what data the app handles, how it
+          is used, and your choices.
         </p>
         <p className="text-muted-foreground leading-relaxed mb-10">
-          <strong className="text-foreground">Important:</strong> AllerLens
-          provides informational guidance only, not medical advice. Always
-          confirm allergen information with restaurant staff.
+          <strong className="text-foreground">The short version:</strong> your
+          data lives on your device. AllerLens has no accounts, no sign-in, and
+          no cloud sync. Menu photos are sent to our server only to process
+          your scan and are never stored.
         </p>
 
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-foreground mb-4">
-            The short version
+            Data stored on your device
           </h2>
           <ul className="list-disc list-inside space-y-3 text-muted-foreground leading-relaxed">
             <li>
-              AllerLens has{" "}
               <strong className="text-foreground">
-                no accounts and no sign-in
-              </strong>
-              . There is nothing to register for.
-            </li>
-            <li>
-              Your allergen profile, preferences, and scan history live{" "}
-              <strong className="text-foreground">on your device only</strong>.
-            </li>
-            <li>
-              When you scan a menu, the{" "}
-              <strong className="text-foreground">
-                photo is sent to our server
+                Allergy and diet preferences
               </strong>{" "}
-              to be read and translated, then{" "}
-              <strong className="text-foreground">discarded</strong> — it is
-              not stored.
+              – Your selected allergens and settings (e.g. preferred
+              translation language) are stored only on your device.
             </li>
             <li>
-              We do not sell your data, we do not track you across apps, and we
-              show no ads.
-            </li>
-          </ul>
-        </section>
-
-        <section className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4">
-            What we handle and why
-          </h2>
-          <ul className="list-disc list-inside space-y-3 text-muted-foreground leading-relaxed">
-            <li>
-              <strong className="text-foreground">Menu photos</strong> – When
-              you scan a menu, the photo is transmitted securely to our server,
-              where it is processed using optical character recognition and AI
-              services (Google Cloud Vision and Anthropic&apos;s Claude) to
-              read the menu, translate it, and identify potential allergens.
-              Menu photos are processed transiently and are{" "}
-              <strong className="text-foreground">not retained</strong> on our
-              servers after processing completes. The results — dish names,
-              translations, and allergen tags — are returned to your device and
-              saved locally.
-            </li>
-            <li>
-              <strong className="text-foreground">
-                Your allergen profile and preferences
-              </strong>{" "}
-              – Your selected allergens and app settings are stored locally on
-              your device. They are used on your device to decide which dishes
-              to flag. Your allergen selections accompany a scan request only so
-              the results can be tailored to you, and are not stored on our
-              servers or used for any other purpose.
-            </li>
-            <li>
-              <strong className="text-foreground">
-                Scan history and saved venues
-              </strong>{" "}
-              – Scans, saved restaurants, and favorite dishes are stored locally
-              on your device in the app&apos;s database. They remain available
-              offline and are never transmitted to us.
+              <strong className="text-foreground">Scan history</strong> – Menus
+              you scan, detected dishes, and any items you save are stored only
+              on your device.
             </li>
             <li>
               <strong className="text-foreground">Location (optional)</strong>{" "}
-              – If you grant location permission, your approximate location at
-              the time of a scan is used to help identify the restaurant
-              you&apos;re at. Location is used at scan time only. We do not
-              track your location in the background and we do not keep a
-              location history on our servers.
+              – With your permission, we use your device&apos;s location to
+              derive city and region so the app can group your scans by place.
+              Location data stays on your device. Precise GPS is optional and
+              off by default. We do not track your location continuously.
+            </li>
+          </ul>
+          <p className="text-muted-foreground leading-relaxed mt-4">
+            You can remove all of this at any time from{" "}
+            <strong className="text-foreground">
+              Profile → Clear local data
+            </strong>
+            . Deleting the app also deletes it.
+          </p>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-foreground mb-4">
+            Menu photos and scanning
+          </h2>
+          <p className="text-muted-foreground leading-relaxed">
+            When you scan a menu, the photo is sent over an encrypted
+            connection (HTTPS) to our server, where an AI service analyzes it
+            to translate the menu and detect potential allergens. The image and
+            your selected allergens are used only to process that scan.{" "}
+            <strong className="text-foreground">
+              We do not store your menu photos or scan results on our servers
+            </strong>{" "}
+            — the results are returned to your device and the server-side data
+            is discarded.
+          </p>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-foreground mb-4">
+            What we don&apos;t do
+          </h2>
+          <ul className="list-disc list-inside space-y-3 text-muted-foreground leading-relaxed">
+            <li>
+              We do <strong className="text-foreground">not</strong> require or
+              offer accounts — there is nothing to sign in to.
             </li>
             <li>
-              <strong className="text-foreground">
-                Camera and photo library
-              </strong>{" "}
-              – Camera access is used to photograph menus. Photo library access
-              is used only for menus you choose to import. The app does not
-              browse or upload anything you don&apos;t explicitly select.
+              We do <strong className="text-foreground">not</strong> sell your
+              personal data.
+            </li>
+            <li>
+              We do <strong className="text-foreground">not</strong> use your
+              data for advertising or share it with third parties for their
+              marketing.
+            </li>
+            <li>
+              We do <strong className="text-foreground">not</strong> store your
+              photos, scans, or allergen profile on our servers.
             </li>
           </ul>
         </section>
 
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-foreground mb-4">
-            Service providers
+            Your choices
+          </h2>
+          <ul className="list-disc list-inside space-y-3 text-muted-foreground leading-relaxed">
+            <li>
+              <strong className="text-foreground">Location</strong> – You can
+              deny or revoke location permission in your device settings. The
+              app still works; location-based grouping will be limited.
+            </li>
+            <li>
+              <strong className="text-foreground">Camera and photos</strong> –
+              The app accesses the camera and photo library only when you scan
+              a menu or choose an image. You can revoke these permissions in
+              device settings.
+            </li>
+            <li>
+              <strong className="text-foreground">Delete your data</strong> –
+              Use{" "}
+              <strong className="text-foreground">
+                Profile → Clear local data
+              </strong>
+              , or delete the app. Because we don&apos;t store your data in the
+              cloud, this removes everything.
+            </li>
+          </ul>
+        </section>
+
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-foreground mb-4">
+            Important note about allergen detection
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            To provide the scanning feature, menu images are processed by
-            Google Cloud Vision (text recognition) and Anthropic (translation
-            and allergen analysis), acting on our behalf, along with our
-            hosting provider. We do not sell or share your personal information
-            with third parties for advertising or marketing.
+            AllerLens uses AI to detect potential allergens and may make
+            mistakes or miss ingredients. Results are informational and are not
+            medical advice. Always confirm ingredients and preparation with
+            restaurant staff before eating, especially if you have a severe
+            allergy.
           </p>
         </section>
 
         <section className="mb-10">
           <h2 className="text-xl font-semibold text-foreground mb-4">
-            Data retention and deletion
+            Data security
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            Because your data is stored on your device, you are in control of
-            it. You can erase everything at any time using{" "}
-            <strong className="text-foreground">Clear local data</strong> in
-            the app&apos;s Profile screen, or by deleting the app. Menu images
-            we process are not retained, so there is nothing on our servers to
-            delete.
-          </p>
-        </section>
-
-        <section className="mb-10">
-          <h2 className="text-xl font-semibold text-foreground mb-4">
-            Children
-          </h2>
-          <p className="text-muted-foreground leading-relaxed">
-            AllerLens is not directed at children under 13, and we do not
-            knowingly collect personal information from children.
+            Data sent to our server for scan processing travels over encrypted
+            connections (HTTPS). Data on your device is protected by your
+            device&apos;s security. You are responsible for keeping your device
+            secure.
           </p>
         </section>
 
@@ -159,10 +167,11 @@ export default function PrivacyPage() {
             Changes to this policy
           </h2>
           <p className="text-muted-foreground leading-relaxed">
-            If we materially change how the app handles data — for example, if
-            optional accounts, cloud backup, or community features are
-            introduced in a future version — we will update this policy and the
-            &quot;last updated&quot; date before those changes take effect.
+            We may update this policy from time to time — for example, if a
+            future version adds optional accounts or sync, this policy will be
+            updated before those features launch. We will post the updated
+            policy at this URL and, where required by law, notify you of
+            material changes.
           </p>
         </section>
 
