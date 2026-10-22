@@ -1,83 +1,77 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-@custom-variant dark (&:is(.dark *));
+/* Theme is a class on <html> (next-themes), switched by the header toggle; "system" follows the device. */
+@custom-variant dark (&:where(.dark, .dark *));
 
-/* Updated color palette for AllerLens - health-focused green theme */
+/* Plain white and black, like the iOS app's own light and dark appearance. See DESIGN.md. */
 :root {
-  --background: oklch(0.98 0.005 140);
-  --foreground: oklch(0.2 0.04 140);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.04 140);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.04 140);
-  --primary: oklch(0.65 0.2 145);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.96 0.02 145);
-  --secondary-foreground: oklch(0.35 0.1 145);
-  --muted: oklch(0.95 0.01 140);
-  --muted-foreground: oklch(0.45 0.03 140);
-  --accent: oklch(0.92 0.04 145);
-  --accent-foreground: oklch(0.35 0.1 145);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.9 0.01 140);
-  --input: oklch(0.9 0.01 140);
-  --ring: oklch(0.65 0.2 145);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
+  --paper: #ffffff;
+  --surface: #f5f5f7;
+  --ink: #111111;
+  --ink-2: #6e6e73;
+  --ink-3: #8e8e93;
+  --line: #e5e5ea;
+  --avoid: #c4291c;
+  --placeholder: #6e6e73;
+
+  /* Elevation for objects that sit above the page: phones, caption cards. */
+  --lift: 0 0 0 1px rgb(0 0 0 / 0.05), 0 1px 2px rgb(0 0 0 / 0.05), 0 24px 48px -24px rgb(0 0 0 / 0.25);
+
+  /* The app's motion curves (src/motion.ts): smoothOut for nearly everything, bounce for press release */
+  --ease-out-app: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.36, 0.64, 1);
+
+  /* shadcn names, kept so components/ui still resolve */
+  --background: var(--paper);
+  --foreground: var(--ink);
+  --card: var(--surface);
+  --card-foreground: var(--ink);
+  --popover: var(--paper);
+  --popover-foreground: var(--ink);
+  --primary: var(--ink);
+  --primary-foreground: var(--paper);
+  --secondary: var(--surface);
+  --secondary-foreground: var(--ink);
+  --muted: var(--surface);
+  --muted-foreground: var(--ink-2);
+  --accent: var(--surface);
+  --accent-foreground: var(--ink);
+  --destructive: var(--avoid);
+  --destructive-foreground: #ffffff;
+  --border: var(--line);
+  --input: var(--line);
+  --ring: var(--ink);
   --radius: 0.75rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: oklch(0.205 0 0);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  color-scheme: light;
 }
 
+/* Dark mode is the app's own dark palette (src/theme.ts in the app repo): warm charcoal, not pure black */
 .dark {
-  --background: oklch(0.145 0 0);
-  --foreground: oklch(0.985 0 0);
-  --card: oklch(0.145 0 0);
-  --card-foreground: oklch(0.985 0 0);
-  --popover: oklch(0.145 0 0);
-  --popover-foreground: oklch(0.985 0 0);
-  --primary: oklch(0.65 0.2 145);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.269 0 0);
-  --secondary-foreground: oklch(0.985 0 0);
-  --muted: oklch(0.269 0 0);
-  --muted-foreground: oklch(0.708 0 0);
-  --accent: oklch(0.269 0 0);
-  --accent-foreground: oklch(0.985 0 0);
-  --destructive: oklch(0.396 0.141 25.723);
-  --destructive-foreground: oklch(0.637 0.237 25.331);
-  --border: oklch(0.269 0 0);
-  --input: oklch(0.269 0 0);
-  --ring: oklch(0.65 0.2 145);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.205 0 0);
-  --sidebar-foreground: oklch(0.985 0 0);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.269 0 0);
-  --sidebar-accent-foreground: oklch(0.985 0 0);
-  --sidebar-border: oklch(0.269 0 0);
-  --sidebar-ring: oklch(0.439 0 0);
+  --paper: #111110; /* bg */
+  --surface: #1d1d1b; /* card */
+  --ink: #f2f1ed; /* ink */
+  --ink-2: #b0aea6; /* inkSecondary */
+  --ink-3: #75736c; /* inkFaint, large text only (3.98:1) */
+  --line: #30302d; /* border */
+  --avoid: #ff9a85; /* Avoid text */
+  --placeholder: #9a988f; /* inkMuted */
+  --lift: 0 0 0 1px rgb(255 255 255 / 0.06), 0 24px 48px -24px rgb(0 0 0 / 0.8);
+  color-scheme: dark;
 }
 
 @theme inline {
-  --font-sans: "Inter", "Inter Fallback";
-  --font-mono: "Geist Mono", "Geist Mono Fallback";
+  /* The system font: SF Pro on iPhone and Mac, the same face as the app's text */
+  --font-sans: -apple-system, BlinkMacSystemFont, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+  --color-line: var(--line);
+  --color-avoid: var(--avoid);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -97,30 +91,314 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --color-chart-1: var(--chart-1);
-  --color-chart-2: var(--chart-2);
-  --color-chart-3: var(--chart-3);
-  --color-chart-4: var(--chart-4);
-  --color-chart-5: var(--chart-5);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --color-sidebar: var(--sidebar);
-  --color-sidebar-foreground: var(--sidebar-foreground);
-  --color-sidebar-primary: var(--sidebar-primary);
-  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
-  --color-sidebar-accent: var(--sidebar-accent);
-  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
-  --color-sidebar-border: var(--sidebar-border);
-  --color-sidebar-ring: var(--sidebar-ring);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    -webkit-text-size-adjust: 100%;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-paper text-ink font-sans antialiased;
+    font-size: 17px;
+    line-height: 1.5;
   }
+  ::selection {
+    background: rgb(0 0 0 / 0.12);
+  }
+  .dark ::selection {
+    background: rgb(255 255 255 / 0.2);
+  }
+  :focus-visible {
+    outline: 2px solid var(--ink);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+}
+
+@layer components {
+  /* Bold, tight system type for headlines (flighty.com: 700, about -1px tracking at 65px) */
+  .display {
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -0.03em;
+    text-wrap: balance;
+  }
+  .heading {
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+
+  /* Primary action: a black pill (white in dark mode). Pressing scales to 0.98 and springs back, as in the app */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    min-height: 48px;
+    padding: 0 1.5rem;
+    border-radius: 999px;
+    font-weight: 600;
+    font-size: 16px;
+    letter-spacing: -0.01em;
+    background: var(--ink);
+    color: var(--paper);
+    transition: opacity 0.15s ease-out, scale 0.25s var(--ease-bounce);
+  }
+  .btn:hover {
+    opacity: 0.88;
+  }
+  .btn:active {
+    scale: 0.98;
+    transition-duration: 0.15s;
+  }
+  .btn:disabled {
+    opacity: 0.6;
+    cursor: progress;
+  }
+
+  .text-link {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+  .text-link:hover {
+    text-decoration-thickness: 2px;
+  }
+
+  /* Phone: a thin dark bezel around a real screenshot.
+     Percent margins resolve against the phone's width, so the bezel scales with it.
+     Corner radii match the 96px curve baked into the 732x1596 screenshots. */
+  .phone {
+    position: relative;
+    border-radius: 14.9% / 7%;
+    background: #111111;
+    box-shadow: var(--lift), inset 0 0 0 1px rgb(255 255 255 / 0.08);
+  }
+  .phone > img {
+    display: block;
+    width: 95.2%;
+    height: auto;
+    margin: 2.4%;
+    border-radius: 13.1% / 6%;
+  }
+  /* A fixed screen that swaps its picture (the "What the app does" tour) */
+  .phone-screen {
+    position: relative;
+    width: 95.2%;
+    margin: 2.4%;
+    aspect-ratio: 732 / 1596;
+    border-radius: 13.1% / 6%;
+    overflow: hidden;
+    isolation: isolate;
+    background: #f3f1ed;
+  }
+
+  /* Theme toggle: a sun in light mode, a moon in dark mode. The outgoing icon turns and shrinks away
+     while the other turns in, 250ms on the app's smoothOut curve. */
+  .theme-icon {
+    position: absolute;
+    transition: opacity 0.25s var(--ease-out-app), rotate 0.25s var(--ease-out-app), scale 0.25s var(--ease-out-app);
+  }
+  .theme-icon-moon {
+    opacity: 0;
+    rotate: -90deg;
+    scale: 0.5;
+  }
+  .dark .theme-icon-sun {
+    opacity: 0;
+    rotate: 90deg;
+    scale: 0.5;
+  }
+  .dark .theme-icon-moon {
+    opacity: 1;
+    rotate: 0deg;
+    scale: 1;
+  }
+
+  /* Grouped rows, the iOS list style */
+  .rows {
+    background: var(--surface);
+    border-radius: 14px; /* the app's card radius */
+    overflow: hidden;
+  }
+  .rows > * + * {
+    border-top: 1px solid var(--line);
+  }
+}
+
+/* Reading column for /privacy and /support */
+.doc h2 {
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  margin: 2.75rem 0 0.75rem;
+  color: var(--ink);
+}
+.doc p,
+.doc li {
+  font-size: 17px;
+  line-height: 1.65;
+  color: var(--ink);
+}
+.doc p + p,
+.doc ul + p,
+.doc p + ul {
+  margin-top: 0.9rem;
+}
+.doc ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.doc li + li {
+  margin-top: 0.6rem;
+}
+.doc li::marker {
+  color: var(--ink-2);
+}
+.doc strong {
+  font-weight: 600;
+}
+
+/* Big-word tabs: grey until chosen, then ink. The grey keeps 3:1 for large text in both themes. */
+.ways-word {
+  color: var(--ink-3);
+  transition: color 0.35s var(--ease-out-app);
+}
+.ways-word:hover {
+  color: var(--ink-2);
+}
+.ways-word[data-state="active"] {
+  color: var(--ink);
+}
+
+/* Hero: the phone, with rows from its own screen called out beside it.
+   Under 768px the callouts sit against the page edges and overlap the phone. */
+.hero-stage {
+  --phone: 220px;
+  --callout: 264px;
+  --overlap: 64px;
+}
+@media (min-width: 768px) {
+  .hero-stage {
+    --phone: 260px;
+    --callout: 300px;
+  }
+}
+@media (min-width: 1024px) {
+  .hero-stage {
+    --phone: 300px;
+    --callout: 344px;
+    --overlap: 56px;
+  }
+}
+.callout {
+  position: absolute;
+  width: var(--callout);
+  max-width: none;
+  height: auto;
+  translate: 0 -50%;
+  border-radius: calc(var(--callout) * 30 / 676);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.04), 0 2px 6px rgb(0 0 0 / 0.06), 0 16px 36px -10px rgb(0 0 0 / 0.22);
+  animation: callout-in 0.5s var(--ease-out-app) both;
+}
+.dark .callout {
+  box-shadow: 0 0 0 1px rgb(255 255 255 / 0.06), 0 16px 36px -10px rgb(0 0 0 / 0.8);
+}
+.callout[data-side="left"] {
+  left: 0;
+  --from: 36px;
+}
+.callout[data-side="right"] {
+  right: 0;
+  --from: -36px;
+}
+.callout[data-phone="hide"] {
+  display: none;
+}
+@media (min-width: 768px) {
+  .callout[data-phone="hide"] {
+    display: block;
+  }
+  .callout[data-desktop-side="left"] {
+    left: auto;
+    right: calc(50% + var(--phone) / 2 - var(--overlap));
+    --from: 48px;
+  }
+  .callout[data-desktop-side="right"] {
+    right: auto;
+    left: calc(50% + var(--phone) / 2 - var(--overlap));
+    --from: -48px;
+  }
+}
+/* Each callout slides out from the phone it came from */
+@keyframes callout-in {
+  from {
+    opacity: 0;
+    transform: translateX(var(--from)) scale(0.94);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .callout {
+    animation: none;
+  }
+  .theme-icon {
+    transition: none;
+  }
+}
+
+/* One underline that glides between words (moved by motion), filling while the tour runs */
+.ways-indicator {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--line);
+  overflow: hidden;
+  pointer-events: none;
+}
+.ways-progress {
+  display: block;
+  height: 100%;
+  background: var(--ink);
+  transform-origin: left center;
+  animation: ways-progress 3.5s linear both;
+}
+.ways-progress[data-playing="false"] {
+  animation: none;
+}
+@keyframes ways-progress {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+/* Question rows open with a chevron turn */
+.faq-chevron {
+  transition: rotate 0.25s ease;
+}
+.faq [data-state="open"] > .faq-chevron {
+  rotate: 180deg;
 }
