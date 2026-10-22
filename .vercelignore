@@ -1,0 +1,7 @@
+# Keep local secrets and build output out of CLI uploads.
+# The project's keys are set in Vercel itself (Project Settings > Environment Variables).
+.env
+.env.*
+node_modules
+.next
+.claude
