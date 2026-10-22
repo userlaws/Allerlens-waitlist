@@ -1,57 +1,34 @@
 import Link from "next/link"
-import { Scan } from "lucide-react"
-import { Twitter, Instagram, Linkedin } from "lucide-react"
 
 export function Footer() {
   return (
-    <footer className="py-12 border-t border-border">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-              <Scan className="w-4 h-4 text-primary-foreground" />
-            </div>
-            <span className="font-semibold text-foreground">AllerLens</span>
-          </div>
-
-          <nav className="flex flex-wrap items-center justify-center gap-6 text-sm">
-            <Link href="/privacy" className="text-muted-foreground hover:text-foreground transition-colors">
-              Privacy Policy
-            </Link>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-              Terms of Service
-            </a>
-            <a href="#" className="text-muted-foreground hover:text-foreground transition-colors">
-              Contact
-            </a>
-            <div className="flex items-center gap-4 ml-2">
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a
-                href="#"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-            </div>
-          </nav>
-
-          <p className="text-sm text-muted-foreground">© 2025 AllerLens. All rights reserved.</p>
+    <footer className="border-t border-line">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-12 md:flex-row md:items-start md:justify-between md:px-8">
+        <div className="max-w-sm">
+          <Link href="/" className="text-[20px] font-semibold tracking-[-0.02em] text-ink">
+            AllerLens
+          </Link>
+          <p className="mt-2 text-[14px] leading-snug text-ink-2">
+            Guidance, not medical advice. Always confirm ingredients with restaurant staff.
+          </p>
         </div>
+
+        <nav aria-label="Footer" className="flex flex-col text-[15px] sm:flex-row sm:gap-6">
+          <Link href="/privacy" className="inline-flex min-h-11 items-center text-ink-2 hover:text-ink">
+            Privacy policy
+          </Link>
+          <Link href="/support" className="inline-flex min-h-11 items-center text-ink-2 hover:text-ink">
+            Support
+          </Link>
+          <a
+            href="mailto:allerlens.app@gmail.com"
+            className="inline-flex min-h-11 items-center text-ink-2 hover:text-ink"
+          >
+            allerlens.app@gmail.com
+          </a>
+        </nav>
       </div>
+      <p className="mx-auto max-w-6xl px-5 pb-10 text-[13px] text-ink-2 md:px-8">© 2026 AllerLens</p>
     </footer>
   )
 }
