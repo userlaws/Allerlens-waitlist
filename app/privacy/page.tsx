@@ -7,10 +7,10 @@ export const metadata: Metadata = {
     "AllerLens privacy policy: your data lives on your device. No accounts, no sign-in, and menu photos are processed for your scan and never stored.",
 }
 
-// Mirrors docs/privacy-policy.html (October 11, 2026). Update both together.
+// Mirrors docs/privacy-policy.html (October 31, 2026). Update both together.
 export default function PrivacyPage() {
   return (
-    <DocPage title="Privacy Policy" meta="Last updated: October 11, 2026">
+    <DocPage title="Privacy Policy" meta="Last updated: October 31, 2026">
       <p>
         AllerLens (&quot;we&quot;, &quot;our&quot;, or &quot;the app&quot;) is a menu-scanning app that helps you
         identify allergens and translate menu items. This policy describes what data the app handles, how it is used,
@@ -18,7 +18,8 @@ export default function PrivacyPage() {
       </p>
       <p>
         <strong>The short version:</strong> your data lives on your device. AllerLens has no accounts, no sign-in, and
-        no cloud sync. Menu photos are sent to our server only to process your scan and are never stored.
+        no cloud sync. Menu photos, PDF menus and the text of menu pages you choose to read are sent to our server only to
+        process your scan and are never stored.
       </p>
 
       <h2>Data stored on your device</h2>
@@ -44,7 +45,7 @@ export default function PrivacyPage() {
         app also deletes it.
       </p>
 
-      <h2>Menu photos and scanning</h2>
+      <h2>Menu photos, files and links</h2>
       <p>
         When you scan a menu, the photo is sent over an encrypted connection (HTTPS) to our server. To translate the
         menu and detect potential allergens, our server passes the photo or its text to two AI providers: Anthropic
@@ -52,6 +53,14 @@ export default function PrivacyPage() {
         sent to our server. Allergen matching happens entirely on your device.{" "}
         <strong>We do not store your menu photos or scan results on our servers.</strong> The results are returned to
         your device and the server-side data is discarded.
+      </p>
+      <p>
+        You can also read a menu from a file or from a link. A PDF you choose is sent to our server in the same way as
+        a photo, and is read by Anthropic only. When you open a menu link (typed, pasted, or found in a QR code by the
+        AllerLens camera), the page opens inside AllerLens directly from the restaurant&apos;s website, as it would in
+        a browser. Only when you tap <strong>Read this menu</strong> is the visible text of that page, or the PDF or
+        menu pictures it shows, sent to our server to be read. Page text is read by Anthropic only; pictures are read
+        the same way as photos. The link itself is not sent to us. As with photos, nothing is stored on our servers.
       </p>
 
       <h2>Reports you send</h2>
@@ -75,7 +84,7 @@ export default function PrivacyPage() {
           We do <strong>not</strong> use your data for advertising or share it with third parties for their marketing.
         </li>
         <li>
-          We do <strong>not</strong> store your photos, scans, or allergen profile on our servers.
+          We do <strong>not</strong> store your photos, menu files, scans, or allergen profile on our servers.
         </li>
       </ul>
 
@@ -86,8 +95,8 @@ export default function PrivacyPage() {
           works; location-based grouping will be limited.
         </li>
         <li>
-          <strong>Camera and photos.</strong> The app accesses the camera and photo library only when you scan a menu or
-          choose an image. You can revoke these permissions in device settings.
+          <strong>Camera and photos.</strong> The app uses the camera to scan menus and to find menu links in QR codes,
+          and the photo library and files only when you choose an image or a PDF. You can revoke these permissions in device settings.
         </li>
         <li>
           <strong>Delete your data.</strong> Use <strong>Profile → Clear scans and settings</strong>, or delete the app.

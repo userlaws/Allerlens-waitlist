@@ -4,7 +4,11 @@ import Link from "next/link"
 const rows = [
   { what: "Your allergies", where: "On your phone. Matching against the menu happens on the device too." },
   { what: "Scans and saved dishes", where: "On your phone." },
-  { what: "Menu photos", where: "Sent over HTTPS to read the menu, then discarded. Never stored." },
+  {
+    what: "Menu photos, PDFs and links",
+    where:
+      "Photos, PDFs and the text of a menu page you tap Read this menu on are sent over HTTPS to be read, then discarded. Never stored. The link itself is not sent.",
+  },
   { what: "Location", where: "Optional. Used to find the city, postal code and country. Never sent to AllerLens." },
   { what: "Account", where: "There isn't one. Nothing to sign up for or sign in to." },
   {
@@ -20,8 +24,8 @@ export function PrivacySection() {
         <div>
           <h2 className="display text-[38px] text-ink md:text-[52px]">Your allergies stay on your phone</h2>
           <p className="mt-5 max-w-[30rem] text-[18px] leading-relaxed text-ink-2">
-            To read a menu, the photo goes to our server, which passes it or its text to Anthropic (Claude) and Google
-            Cloud Vision. Your allergy list never leaves the phone, and the photo isn&apos;t kept.
+            To read a menu, the photo, PDF or page text goes to our server, which passes it to Anthropic (Claude) and,
+            for photos, Google Cloud Vision. Your allergy list never leaves the phone, and nothing sent is kept.
           </p>
           <p className="mt-5">
             <Link href="/privacy" className="text-link inline-flex min-h-11 items-center text-[17px]">

@@ -4,7 +4,7 @@ Owner direction (Oct 21, 2026): a simple white page, no green or teal, plain but
 
 Dial: ENERGY 1 / RHYTHM 2 / MOTION 2
 
-Design Read: a waitlist page for an iPhone menu-scanning app, for people with food allergies who eat out. Plain white and black like the iOS app's own light and dark appearance; the photos and the real app screens carry the character.
+Design Read: the landing page for an iPhone menu-scanning app, linking to its App Store listing, for people with food allergies who eat out. Plain white and black like the iOS app's own light and dark appearance; the photos and the real app screens carry the character.
 
 ## Identity
 
