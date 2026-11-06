@@ -2,7 +2,7 @@
 const gijon = [
   {
     src: "/photos/gijon-reading.webp",
-    alt: "At a seafront table in Gijón, a hand holds a phone showing Taberna El Puerto's menu translated into English, beside the printed Spanish menu and a plate of croquetas.",
+    alt: "At a seafront table, a hand holds a phone showing Taberna El Puerto's menu translated into English, beside the printed Spanish menu and a plate of croquetas.",
     title: "Read it in English",
     body: "AllerLens detects the menu's language and translates it into English or Spanish. The original dish name stays underneath, so you can point to the right line.",
   },
@@ -21,7 +21,7 @@ export function TableSection() {
         <div className="max-w-2xl">
           <h2 className="display text-[38px] text-ink md:text-[52px]">At the table</h2>
           <p className="mt-5 text-[18px] leading-relaxed text-ink-2">
-            Corner Diner in New York and Taberna El Puerto in Gijón, as AllerLens sees them.
+            Two sample menus, a diner and a Spanish tavern, as AllerLens sees them. Both menus are made up for the app&apos;s tests.
           </p>
         </div>
 
@@ -38,7 +38,7 @@ export function TableSection() {
             </picture>
           </div>
           <figcaption className="mt-5 max-w-[30rem]">
-            <p className="text-[15px] font-semibold text-ink-2">Corner Diner, New York</p>
+            <p className="text-[15px] font-semibold text-ink-2">Sample menu: Corner Diner</p>
             <h3 className="heading mt-1 text-[24px] text-ink md:text-[26px]">Check it before you order</h3>
             <p className="mt-2 text-[16px] leading-relaxed text-ink-2">
               Peanut Satay and Sesame Ginger come back Avoid, Ice Cream Ask staff, and the rest Safe.
@@ -60,7 +60,7 @@ export function TableSection() {
                 />
               </div>
               <figcaption className="mt-5 max-w-[30rem]">
-                <p className="text-[15px] font-semibold text-ink-2">Taberna El Puerto, Gijón</p>
+                <p className="text-[15px] font-semibold text-ink-2">Sample menu: Taberna El Puerto</p>
                 <h3 className="heading mt-1 text-[24px] text-ink md:text-[26px]">{moment.title}</h3>
                 <p className="mt-2 text-[16px] leading-relaxed text-ink-2">{moment.body}</p>
               </figcaption>

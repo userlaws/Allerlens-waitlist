@@ -6,7 +6,7 @@ import { DevFeedback } from "@/components/dev-feedback"
 import "./globals.css"
 
 const description =
-  "AllerLens reads a restaurant menu page by page and checks every dish against your allergies: what to avoid, what looks safe and what to ask staff about. Join the waitlist for the private beta."
+  "Scan a menu, open it from the QR code on the table, or upload a PDF. AllerLens translates it and checks every dish against the allergens you chose. Free on the App Store for iPhone."
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://allerlens.app"),
@@ -24,9 +24,9 @@ export const metadata: Metadata = {
     "sesame allergy",
     "menu translation",
   ],
-  authors: [{ name: "AllerLens" }],
-  creator: "AllerLens",
-  publisher: "AllerLens",
+  authors: [{ name: "Imanol Aracena" }],
+  creator: "Imanol Aracena",
+  publisher: "Imanol Aracena",
   formatDetection: {
     email: false,
     address: false,
@@ -98,6 +98,8 @@ export default function RootLayout({
               name: "AllerLens",
               applicationCategory: "LifestyleApplication",
               operatingSystem: "iOS",
+              offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+              downloadUrl: "https://apps.apple.com/app/id6802429618",
               description,
             }),
           }}

@@ -1,5 +1,5 @@
 import { PhoneFrame } from "./phone-frame"
-import { WaitlistForm } from "./waitlist-form"
+import { AppStoreLink } from "./app-store-link"
 
 // Rows cut straight from the Corner Diner screen (public/screens/rows), enlarged beside the phone that shows them,
 // the way flighty.com's hero sets real notifications around its phone. `at` is the row's centre as a share of the
@@ -20,9 +20,13 @@ export function HeroSection() {
           See what to avoid, and&nbsp;why.
         </h1>
         <p className="mx-auto mt-5 max-w-[34rem] text-[18px] leading-relaxed text-ink-2 md:text-[19px]">
-          AllerLens reads a restaurant menu page by page and checks every dish against the allergies you set.
+          Scan a menu, open it from the QR code on the table, or upload a PDF. AllerLens translates it and checks every
+          dish against the allergens you chose.
         </p>
-        <WaitlistForm className="mx-auto mt-8 text-center" />
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <AppStoreLink />
+          <p className="text-[14px] text-ink-2">Free · iPhone only · No account</p>
+        </div>
       </div>
 
       <div className="hero-stage relative mx-auto mt-12 max-w-[1000px] md:mt-14">

@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { ThemeSwitch } from "./theme-switch"
+import { AppStoreLink } from "./app-store-link"
 
 const links = [
   { href: "/#see-it-in-action", label: "What it does" },
@@ -25,9 +26,7 @@ export function Header() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <ThemeSwitch />
-          <a href="/#waitlist" className="btn min-h-10 px-4 text-[15px]">
-            Join the waitlist
-          </a>
+          <AppStoreLink className="min-h-10 px-4 text-[15px]" label="Get the app" />
         </div>
       </div>
     </header>

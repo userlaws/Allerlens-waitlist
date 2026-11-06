@@ -28,7 +28,7 @@ export function Footer() {
           </a>
         </nav>
       </div>
-      <p className="mx-auto max-w-6xl px-5 pb-10 text-[13px] text-ink-2 md:px-8">© 2026 AllerLens</p>
+      <p className="mx-auto max-w-6xl px-5 pb-10 text-[13px] text-ink-2 md:px-8">© 2026 Imanol Aracena</p>
     </footer>
   )
 }
