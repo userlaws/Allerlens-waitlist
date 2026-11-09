@@ -5,7 +5,7 @@ export function Footer() {
     <footer className="border-t border-line">
       <div className="mx-auto flex max-w-6xl flex-col gap-8 px-5 py-12 md:flex-row md:items-start md:justify-between md:px-8">
         <div className="max-w-sm">
-          <Link href="/" className="text-[20px] font-semibold tracking-[-0.02em] text-ink">
+          <Link href="/" className="font-display text-[22px] font-semibold text-ink">
             AllerLens
           </Link>
           <p className="mt-2 text-[14px] leading-snug text-ink-2">

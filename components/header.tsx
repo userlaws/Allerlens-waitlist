@@ -3,16 +3,16 @@ import { ThemeSwitch } from "./theme-switch"
 import { AppStoreLink } from "./app-store-link"
 
 const links = [
-  { href: "/#see-it-in-action", label: "What it does" },
   { href: "/#privacy", label: "Privacy" },
-  { href: "/#faq", label: "Questions" },
+  { href: "/support", label: "Questions" },
 ]
 
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-line bg-paper">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-5 md:px-8">
-        <Link href="/" className="text-[20px] font-semibold tracking-[-0.02em] text-ink">
+        <Link href="/" className="font-display flex items-center gap-2.5 text-[22px] font-semibold text-ink">
+          <img src="/app-icon.png" alt="" width={28} height={28} className="rounded-[22.4%]" />
           AllerLens
         </Link>
 

@@ -1,35 +1,21 @@
 import type { Metadata } from "next"
-import Link from "next/link"
-import { DocPage } from "@/components/doc-page"
-import { faqs } from "@/lib/faqs"
+import { Header } from "@/components/header"
+import { Footer } from "@/components/footer"
+import { SmallPrint } from "@/components/small-print"
 
 export const metadata: Metadata = {
-  title: "Support",
-  description: "Get help with AllerLens: accounts, wrong results, scanning tips, languages and deleting your data.",
+  title: "Questions and support",
+  description: "Get help with AllerLens: cost, scanning, languages, what the labels mean, wrong results and deleting your data.",
 }
 
 export default function SupportPage() {
   return (
-    <DocPage title="Support" meta="We usually reply within a few days.">
-      <p>
-        Questions, bug reports, or feedback:{" "}
-        <a href="mailto:allerlens.app@gmail.com" className="text-link">
-          allerlens.app@gmail.com
-        </a>
-      </p>
-
-      {faqs.map((faq) => (
-        <section key={faq.question}>
-          <h2>{faq.question}</h2>
-          <p>{faq.answer}</p>
-        </section>
-      ))}
-
-      <p className="mt-12">
-        <Link href="/privacy" className="text-link">
-          Privacy policy
-        </Link>
-      </p>
-    </DocPage>
+    <>
+      <Header />
+      <main>
+        <SmallPrint />
+      </main>
+      <Footer />
+    </>
   )
 }
