@@ -1,6 +1,6 @@
 # AllerLens site: design direction
 
-Owner direction (Oct 21, 2026): a simple white page, no green or teal, plain buttons and plain type, with a dark mode switch like the app's. Earlier passes (warm paper and teal, then a serif) were rejected. Edit this file if the brand changes; the CSS tokens in `app/globals.css` follow it.
+Owner direction (Nov 6, 2026): the app's warm paper and Fraunces, no teal (hated), no brand colour yet, only subtle sage from the app icon, and no template page structure. The plain white page (Oct 21) read as blank. Dark mode switch stays. Edit this file if the brand changes; the CSS tokens in `app/globals.css` follow it.
 
 Dial: ENERGY 1 / RHYTHM 2 / MOTION 2
 
@@ -15,19 +15,19 @@ Design Read: the landing page for an iPhone menu-scanning app, linking to its Ap
 
 ## Palette
 
+Direction change, Nov 6, 2026: the owner found the plain white page blank, with no flavor, and asked for the app's own look. This reverses the Oct 21 decision. The earlier white, system-font version is in git history (`site-redesign`).
+
 | Token | Light | Dark | Why |
 |---|---|---|---|
-| paper | `#ffffff` | `#111110` | Plain white page; dark is the app's `bg` |
-| surface | `#f5f5f7` | `#1d1d1b` | Grouped cards and inputs; dark is the app's `card` |
-| ink | `#111111` | `#f2f1ed` | All headings, body and buttons |
-| ink-2 | `#6e6e73` | `#b0aea6` | Secondary text; 5.1:1 on white, 8.5:1 on `#111110` |
-| ink-3 | `#8e8e93` | `#75736c` | Unselected tab words only (large text, 3:1 or better) |
-| line | `#e5e5ea` | `#30302d` | Hairlines and section borders |
-| avoid | `#c4291c` | `#ff9a85` | Form errors only; dark is the app's Avoid text color |
+| paper | `#f3f1ec` | `#111110` | The app's `bg`, "warm paper" |
+| surface | `#ffffff` | `#1d1d1b` | Cards and grouped rows; the app's `card` |
+| ink | `#16242a` | `#f2f1ed` | Headings and body |
+| ink-2 | `#566869` | `#b0aea6` | Secondary text |
+| line | `#dad6cd` | `#30302d` | Hairlines |
+| brand | `#2f6b4f` | `#8fc9a6` | A quiet sage taken from the app icon: focus ring, selection only |
+| stage | `#dfe8e0` | `#1b2620` | The pale sage panel behind the pinned phone |
 
-Dark mode copies the app's dark palette exactly (`src/theme.ts` in the app repo, documented in its `design-handoff.md`): warm charcoal, not pure black. Light mode stays plain white with neutral greys, the system font and black buttons. On Oct 21, 2026 the owner compared previews of Fraunces headings on white and of the app's full light look (warm paper `#F3F1EC`, teal `#235E6B` buttons, Fraunces titles) and chose to keep this one. Don't bring the paper, teal or serif back without a new request.
-
-No accent color. The only color on the page comes from the photos and the app screenshots.
+Colour appears in three places only: the pale sage stage behind the phone, the four label colours (the app's own, dark-mode values on the stage), and the photos and screens. `--safe-*`, `--caution-*`, `--avoid-*`, `--ask-*` hold the label colours.
 
 ## Theme
 
@@ -36,14 +36,14 @@ No accent color. The only color on the page comes from the photos and the app sc
 
 ## Type
 
-- One family: the system font (SF Pro on iPhone and Mac, the same face as the app's text; Segoe UI on Windows).
-- Headlines 700 with -0.03em tracking and 1.04 leading (flighty.com: 700, about -1px at 65px). Section titles and card titles 600.
-- Body 17px, secondary text in ink-2.
+- Display: Fraunces SemiBold 600 (`next/font/google`, the app's own display face), sentence case, 1.06 leading, -0.02em. Used for the wordmark, h1, h2 and card titles via `.display` and `.heading`.
+- Everything else: the system font, body 17px, secondary text in ink-2.
+- No uppercase eyebrows, no monospace.
 
 ## Shape and depth
 
-- Buttons and inputs are full pills (flighty.com's 50px radius, and the app's own pill buttons); grouped cards and caption cards 14px (the app's card radius); photos 24 to 36px; phone screens clipped to the device curve.
-- Buttons: black in light mode, near-white in dark mode, 48px tall. Pressing scales to 0.98 and springs back on the app's bounce curve; hover fades to 0.88, the app's pressed opacity.
+- Buttons and inputs 14px radius (the app's primary button); grouped cards and caption cards 14px; teal stages 28px on phones and 40px on desktop; photos 24 to 36px; phone screens clipped to the device curve.
+- Buttons: ink fill with paper text, 14px radius like the app's primary button, 48px tall. Pressing scales to 0.98 and springs back on the app's bounce curve; hover fades to 0.88, the app's pressed opacity.
 - Shadows: hairline ring plus one soft layer, only on phones and the caption card that overlaps them.
 
 ## Motion

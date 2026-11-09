@@ -3,7 +3,11 @@ import type { Metadata, Viewport } from "next"
 import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { DevFeedback } from "@/components/dev-feedback"
+import { Fraunces } from "next/font/google"
 import "./globals.css"
+
+// The app's display face: Fraunces SemiBold, the only weight it loads
+const fraunces = Fraunces({ subsets: ["latin"], weight: "600", variable: "--font-fraunces", display: "swap" })
 
 const description =
   "Scan a menu, open it from the QR code on the table, or upload a PDF. AllerLens translates it and checks every dish against the allergens you chose. Free on the App Store for iPhone."
@@ -73,7 +77,7 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = {
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#ffffff" },
+    { media: "(prefers-color-scheme: light)", color: "#f3f1ec" },
     { media: "(prefers-color-scheme: dark)", color: "#111110" },
   ],
   width: "device-width",
@@ -87,7 +91,7 @@ export default function RootLayout({
 }>) {
   return (
     // next-themes sets the "dark" class before paint, so the server markup differs on purpose
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={fraunces.variable}>
       <head>
         <script
           type="application/ld+json"
@@ -106,7 +110,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           {children}
         </ThemeProvider>
         <Analytics />
