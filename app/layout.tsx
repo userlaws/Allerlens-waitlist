@@ -4,27 +4,36 @@ import { Analytics } from "@vercel/analytics/next"
 import { ThemeProvider } from "@/components/theme-provider"
 import { DevFeedback } from "@/components/dev-feedback"
 import { Fraunces } from "next/font/google"
+import { SITE_URL } from "@/lib/site"
 import "./globals.css"
 
 // The app's display face: Fraunces SemiBold, the only weight it loads
 const fraunces = Fraunces({ subsets: ["latin"], weight: "600", variable: "--font-fraunces", display: "swap" })
 
+const APP_STORE_URL = "https://apps.apple.com/app/id6802429618"
+const TITLE = "AllerLens: scan restaurant menus for food allergens"
+
 const description =
   "Scan a menu, open it from the QR code on the table, or upload a PDF. AllerLens translates it and checks every dish against the allergens you chose. Free on the App Store for iPhone."
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://allerlens.app"),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "AllerLens: scan the menu, see what to avoid",
+    default: TITLE,
     template: "%s | AllerLens",
   },
   description,
+  // The site answers on www, so every canonical is built from metadataBase
+  alternates: { canonical: "/" },
+  // Safari shows its Smart App Banner from this
+  other: { "apple-itunes-app": "app-id=6802429618" },
   keywords: [
-    "food allergy",
-    "allergy app",
-    "menu scanner",
+    "food allergy app",
+    "allergy menu scanner",
+    "restaurant allergen app",
+    "peanut allergy app",
+    "menu translator",
     "restaurant menu allergens",
-    "peanut allergy",
     "sesame allergy",
     "menu translation",
   ],
@@ -41,7 +50,7 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "/",
     siteName: "AllerLens",
-    title: "AllerLens: scan the menu, see what to avoid",
+    title: TITLE,
     description,
     images: [
       {
@@ -54,7 +63,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "AllerLens: scan the menu, see what to avoid",
+    title: TITLE,
     description,
     images: ["/og.jpg"],
   },
@@ -98,12 +107,16 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{
             __html: JSON.stringify({
               "@context": "https://schema.org",
-              "@type": "SoftwareApplication",
+              "@type": "MobileApplication",
               name: "AllerLens",
-              applicationCategory: "LifestyleApplication",
+              url: SITE_URL,
               operatingSystem: "iOS",
+              applicationCategory: "LifestyleApplication",
               offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-              downloadUrl: "https://apps.apple.com/app/id6802429618",
+              installUrl: APP_STORE_URL,
+              downloadUrl: APP_STORE_URL,
+              screenshot: [`${SITE_URL}/screens/avoid-and-why.webp`, `${SITE_URL}/screens/translated-menu.webp`],
+              author: { "@type": "Person", name: "Imanol Aracena" },
               description,
             }),
           }}

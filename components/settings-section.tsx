@@ -110,7 +110,8 @@ export function SettingsSection() {
         <div className="max-w-[40rem]">
           <h2 className="display text-[36px] text-ink sm:text-[44px] lg:text-[54px]">Your language, your light.</h2>
           <p className="mt-5 text-[18px] leading-relaxed text-ink-2">
-            Menus are translated into English or Spanish, with the original name kept under each dish. The app follows
+            AllerLens is a menu translator too. Menus are translated into English or Spanish, with the original name kept
+            under each dish. The app follows
             your iPhone&apos;s light or dark setting unless you pick one. Try the settings below.
           </p>
         </div>

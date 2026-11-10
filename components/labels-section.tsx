@@ -106,7 +106,8 @@ export function LabelsSection() {
           <h2 className="display text-[36px] text-ink sm:text-[44px] lg:text-[54px]">Every dish gets a label. Tap it for the reasons.</h2>
           <p className="mt-5 max-w-[30rem] text-[18px] leading-relaxed text-ink-2">
             Safe, Caution, Avoid or Ask staff. A flagged dish shows the words that caused it, and AllerLens knows what a
-            dish usually contains even when the menu lists no ingredients. Ask staff is never shown as Safe.
+            dish usually contains even when the menu lists no ingredients. Ask staff is never shown as Safe. The demo is
+            set up the way a peanut allergy app would be, with Peanuts and Sesame picked.
           </p>
           <p className="mt-5 text-[15px] text-ink-2">Try it: tap a dish.</p>
         </div>

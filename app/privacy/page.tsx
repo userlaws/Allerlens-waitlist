@@ -3,6 +3,7 @@ import { DocPage } from "@/components/doc-page"
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
+  alternates: { canonical: "/privacy" },
   description:
     "AllerLens privacy policy: your data lives on your device. No accounts, no sign-in, and menu photos are processed for your scan and never stored.",
 }
