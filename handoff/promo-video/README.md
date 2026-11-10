@@ -55,7 +55,7 @@ Put a short text summary next to the video. Search engines read text, not the pi
 ## Structured data (VideoObject)
 
 Add this next to the existing SoftwareApplication JSON-LD in `app/layout.tsx`, or on the page that shows the video.
-Replace the domain if the site is not on allerlens.app. `uploadDate` is the day the video goes live on the site.
+Replace the domain if the site is not on www.allerlens.app. `uploadDate` is the day the video goes live on the site.
 
 ```json
 {
@@ -63,10 +63,10 @@ Replace the domain if the site is not on allerlens.app. `uploadDate` is the day 
   "@type": "VideoObject",
   "name": "AllerLens: scan a restaurant menu for food allergens",
   "description": "AllerLens reads a restaurant menu from a photo, a link or a QR code, translates it, and labels every dish Safe, Caution, Avoid or Ask staff for the allergens you chose. Free for iPhone.",
-  "thumbnailUrl": ["https://allerlens.app/video/allerlens-promo-poster.jpg", "https://allerlens.app/video/allerlens-promo-vertical-poster.jpg"],
+  "thumbnailUrl": ["https://www.allerlens.app/video/allerlens-promo-poster.jpg", "https://www.allerlens.app/video/allerlens-promo-vertical-poster.jpg"],
   "uploadDate": "2026-11-10",
   "duration": "PT41S",
-  "contentUrl": "https://allerlens.app/video/allerlens-promo.mp4",
+  "contentUrl": "https://www.allerlens.app/video/allerlens-promo.mp4",
   "inLanguage": "en",
   "publisher": { "@type": "Person", "name": "Imanol Aracena" }
 }
@@ -83,12 +83,12 @@ The site has no `app/sitemap.ts` or `app/robots.ts` yet. Add both. A video entry
 
 ```xml
 <url>
-  <loc>https://allerlens.app/</loc>
+  <loc>https://www.allerlens.app/</loc>
   <video:video>
-    <video:thumbnail_loc>https://allerlens.app/video/allerlens-promo-poster.jpg</video:thumbnail_loc>
+    <video:thumbnail_loc>https://www.allerlens.app/video/allerlens-promo-poster.jpg</video:thumbnail_loc>
     <video:title>AllerLens: scan a restaurant menu for food allergens</video:title>
     <video:description>AllerLens reads a restaurant menu from a photo, a link or a QR code and labels every dish Safe, Caution, Avoid or Ask staff for the allergens you chose.</video:description>
-    <video:content_loc>https://allerlens.app/video/allerlens-promo.mp4</video:content_loc>
+    <video:content_loc>https://www.allerlens.app/video/allerlens-promo.mp4</video:content_loc>
     <video:duration>41</video:duration>
   </video:video>
 </url>
@@ -117,7 +117,7 @@ Scan the menu with your camera, every page of it, or open it from the QR code on
 There is no account and no sign-in. Your allergen list stays on your phone.
 
 Free on the App Store for iPhone: https://apps.apple.com/app/id6802429618
-Website: https://allerlens.app
+Website: https://www.allerlens.app
 
 AllerLens uses AI, and AI makes mistakes. It gives guidance, not medical advice. Always confirm ingredients and preparation with restaurant staff before you order, especially if your allergy is severe.
 
