@@ -29,6 +29,8 @@ Direction change, Nov 6, 2026: the owner found the plain white page blank, with 
 
 Colour appears in three places only: the pale sage stage behind the phone, the four label colours (the app's own, dark-mode values on the stage), and the photos and screens. `--safe-*`, `--caution-*`, `--avoid-*`, `--ask-*` hold the label colours.
 
+The promo video (`public/video`) uses the same stage colour, `#dfe8e0`, behind the phone, with ink `#16242A` Fraunces 600 captions and ink-2 `#566869` for smaller lines. Its title and end cards stay warm paper. Teal appears only inside the phone, where it is the real app.
+
 ## Theme
 
 - next-themes with a `dark` class on `<html>`; the default follows the device ("system"), and the header switch overrides it and remembers the choice.
