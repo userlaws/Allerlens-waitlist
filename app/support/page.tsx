@@ -5,6 +5,7 @@ import { SmallPrint } from "@/components/small-print"
 
 export const metadata: Metadata = {
   title: "Questions and support",
+  alternates: { canonical: "/support" },
   description: "Get help with AllerLens: cost, scanning, languages, what the labels mean, wrong results and deleting your data.",
 }
 

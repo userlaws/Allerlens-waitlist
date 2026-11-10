@@ -20,7 +20,7 @@ function ConfirmContent() {
           </Link>
         }
       >
-        <p>Your email is confirmed. A welcome email is on its way, and we&apos;ll write again when the private beta opens.</p>
+        <p>Your email is confirmed. A welcome email is on its way. AllerLens is now on the App Store for iPhone.</p>
       </StatusPanel>
     )
   }
@@ -32,8 +32,8 @@ function ConfirmContent() {
         title="That link didn't work"
         actions={
           <>
-            <Link href="/#waitlist" className="btn">
-              Sign up again
+            <Link href="/" className="btn">
+              Back to AllerLens
             </Link>
             <a href="mailto:allerlens.app@gmail.com" className="text-link">
               Email us
@@ -42,8 +42,8 @@ function ConfirmContent() {
         }
       >
         <p>
-          Confirmation links expire after 48 hours, and each one works once. Sign up again and we&apos;ll send a fresh
-          link.
+          Confirmation links expire after 48 hours, and each one works once. The waitlist is closed now that AllerLens
+          is on the App Store.
         </p>
       </StatusPanel>
     )

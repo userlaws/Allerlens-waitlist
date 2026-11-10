@@ -1118,3 +1118,18 @@ img.demo-layer {
     animation-delay: 0s !important;
   }
 }
+
+/* The promo video: the poster is a background, picked by the same breakpoint as the file, so the right frame shows
+   before any script runs and before the video downloads. */
+.promo-video {
+  aspect-ratio: 9 / 16;
+  max-width: 320px;
+  background: #235e6b url("/video/allerlens-promo-vertical-poster.jpg") center / cover no-repeat;
+}
+@media (min-width: 768px) {
+  .promo-video {
+    aspect-ratio: 16 / 9;
+    max-width: none;
+    background-image: url("/video/allerlens-promo-poster.jpg");
+  }
+}

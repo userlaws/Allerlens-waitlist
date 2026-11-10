@@ -9,7 +9,8 @@ export function Footer() {
             AllerLens
           </Link>
           <p className="mt-2 text-[14px] leading-snug text-ink-2">
-            Guidance, not medical advice. Always confirm ingredients with restaurant staff.
+            A restaurant allergen app for iPhone. Guidance, not medical advice. Always confirm ingredients with restaurant
+            staff.
           </p>
         </div>
 
