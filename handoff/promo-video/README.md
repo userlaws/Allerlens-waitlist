@@ -2,8 +2,9 @@
 
 A 41 second promo built from real AllerLens 1.1.0 (21) footage: a simulator recording of a menu read from a link, the
 results list, a dish sheet and the staff card, plus four real screens from the App Store set. It has no sound, so it can
-autoplay muted on the site. The look matches the App Store images: teal `#235E6B`, white Fraunces 600 captions, the
-warm paper `#F3F1EC` title and end cards.
+autoplay muted on the site. The look matches the site: the pale sage stage `#DFE8E0` behind the phone, ink `#16242A`
+Fraunces 600 captions with ink-2 `#566869` for smaller lines, and the warm paper `#F3F1EC` title and end cards. The
+only teal is inside the phone, in the real app.
 
 The menu in the footage is the made-up Corner Diner test page. The in-app browser's address bar was changed to read
 "cornerdiner" because the page was served from a test address.
@@ -12,14 +13,14 @@ The menu in the footage is the made-up Corner Diner test page. The in-app browse
 
 | File | Use |
 | --- | --- |
-| `public/video/allerlens-promo.mp4` | 1920x1080, 41.2 s, H.264, 7.7 MB. Desktop hero or "watch it" section |
+| `public/video/allerlens-promo.mp4` | 1920x1080, 41.2 s, H.264, 7.6 MB. Desktop hero or "watch it" section |
 | `public/video/allerlens-promo-vertical.mp4` | 1080x1920, same cut, 7.0 MB. Phones, Instagram Reels, TikTok, YouTube Shorts |
 | `public/video/allerlens-promo-poster.jpg` | First frame stand-in for the landscape video (results list) |
 | `public/video/allerlens-promo-vertical-poster.jpg` | Poster for the vertical video |
 | `public/video/allerlens-promo.en.vtt` / `.es.vtt` | Captions with the on-screen text, English and Spanish |
 
 Higher bitrate masters for uploading to YouTube and social sites are on the Mac at `~/Desktop/AllerLens-Promo/`
-(`allerlens-promo-landscape.mp4` 14 MB, `allerlens-promo-vertical.mp4` 22 MB). The web files above are fine to upload
+(`allerlens-promo-landscape.mp4` 9.6 MB, `allerlens-promo-vertical.mp4` 16 MB). The web files above are fine to upload
 too if the masters are not at hand.
 
 ## Putting it on the site
