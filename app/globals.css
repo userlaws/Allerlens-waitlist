@@ -1124,7 +1124,7 @@ img.demo-layer {
 .promo-video {
   aspect-ratio: 9 / 16;
   max-width: 320px;
-  background: #235e6b url("/video/allerlens-promo-vertical-poster.jpg") center / cover no-repeat;
+  background: #dfe8e0 url("/video/allerlens-promo-vertical-poster.jpg") center / cover no-repeat;
 }
 @media (min-width: 768px) {
   .promo-video {
