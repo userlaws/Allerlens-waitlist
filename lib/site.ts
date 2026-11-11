@@ -12,4 +12,6 @@ export const PROMO_VIDEO = {
   vertical: "/video/allerlens-promo-vertical.mp4",
   poster: "/video/allerlens-promo-poster.jpg",
   verticalPoster: "/video/allerlens-promo-vertical-poster.jpg",
+  // The same cut on YouTube (channel @allerlensapp)
+  youtubeId: "J_u_joXaR8Q",
 }

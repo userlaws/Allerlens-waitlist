@@ -19,6 +19,7 @@ const videoJsonLd = {
   uploadDate: PROMO_VIDEO.uploadDate,
   duration: `PT${PROMO_VIDEO.seconds}S`,
   contentUrl: `${SITE_URL}${PROMO_VIDEO.landscape}`,
+  embedUrl: `https://www.youtube.com/embed/${PROMO_VIDEO.youtubeId}`,
   inLanguage: "en",
   publisher: { "@type": "Person", name: "Imanol Aracena" },
 }
