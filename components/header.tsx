@@ -26,7 +26,7 @@ export function Header() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <ThemeSwitch />
-          <AppStoreLink className="min-h-10 px-4 text-[15px]" label="Get the app" />
+          <AppStoreLink className="min-h-10 whitespace-nowrap px-4 text-[15px]" label="Get the app" />
         </div>
       </div>
     </header>
