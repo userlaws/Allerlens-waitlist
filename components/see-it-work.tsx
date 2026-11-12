@@ -1,56 +1,88 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
+import { PauseIcon, PlayIcon } from "@/components/icons"
 
 // The 41 second promo (handoff/promo-video/README.md): landscape on wide screens, the vertical cut on phones.
-// Nothing downloads until the section is near the screen. It then plays muted on a loop, and pauses when it leaves.
-// With reduced motion it never starts by itself: the poster and the browser's own play button are shown.
-// The captions are also burned into the picture, so neither track is on by default; both are in the captions menu.
+// No browser controls: the whole picture is one button. Clicking it pauses or plays; a round play button sits in
+// the middle while it is paused, and a pause button shows on hover while it plays.
+// Nothing downloads until the section is close to the screen. It then plays muted on a loop, and pauses when it
+// leaves. If the browser refuses to autoplay, or the visitor prefers reduced motion, the play button stays up.
+// The captions are burned into the picture.
 const LABEL =
   "AllerLens demo: a restaurant menu opened from a link, each dish labelled Safe, Caution, Avoid or Ask staff, and the card that shows staff your allergies"
 
 export function SeeItWork() {
-  const ref = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const stoppedRef = useRef(false) // the visitor paused it; scrolling back does not restart it
+  const autoPauseRef = useRef(false)
+  const [playing, setPlaying] = useState(false)
 
   useEffect(() => {
-    const video = ref.current
+    const video = videoRef.current
     if (!video) return
 
-    // The poster follows the same breakpoint as the <source media> below
+    // React does not write the muted attribute, and Safari will not autoplay without it
+    video.muted = true
+    video.defaultMuted = true
+    video.setAttribute("muted", "")
+
     const narrow = window.matchMedia("(max-width: 767px)")
     video.poster = narrow.matches ? "/video/allerlens-promo-vertical-poster.jpg" : "/video/allerlens-promo-poster.jpg"
 
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
-    let stopped = false // the visitor paused it; leave it alone
-    const onPause = () => {
-      if (!video.dataset.auto) stopped = true
-    }
     const onPlay = () => {
-      stopped = false
+      setPlaying(true)
+      stoppedRef.current = false
     }
-    video.addEventListener("pause", onPause)
+    const onPause = () => {
+      setPlaying(false)
+      if (!autoPauseRef.current) stoppedRef.current = true
+    }
     video.addEventListener("play", onPlay)
+    video.addEventListener("pause", onPause)
 
-    const observer = new IntersectionObserver(
+    // Start loading a screen early, so the first frame is ready when it scrolls in
+    const loader = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          if (!stopped) video.play().catch(() => {})
+          video.preload = "auto"
+          loader.disconnect()
+        }
+      },
+      { rootMargin: "600px 0px" },
+    )
+    loader.observe(video)
+
+    const player = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          if (!reduced && !stoppedRef.current && video.paused) video.play().catch(() => {})
         } else if (!video.paused) {
-          video.dataset.auto = "1"
+          autoPauseRef.current = true
           video.pause()
-          delete video.dataset.auto
+          autoPauseRef.current = false
         }
       },
       { threshold: 0.35 },
     )
-    observer.observe(video)
+    player.observe(video)
+
     return () => {
-      observer.disconnect()
-      video.removeEventListener("pause", onPause)
+      loader.disconnect()
+      player.disconnect()
       video.removeEventListener("play", onPlay)
+      video.removeEventListener("pause", onPause)
     }
   }, [])
+
+  const toggle = () => {
+    const video = videoRef.current
+    if (!video) return
+    if (video.paused) video.play().catch(() => {})
+    else video.pause()
+  }
 
   return (
     <section id="see-it-work" className="border-t border-line">
@@ -63,25 +95,37 @@ export function SeeItWork() {
             Safe, Caution, Avoid or Ask staff. Tap a dish to see why. Show staff a card with your allergies, in the
             menu&apos;s language.
           </p>
-          <p className="mt-4 text-[15px] text-ink-2">41 seconds · No sound · Captions in English and Spanish</p>
         </div>
 
         <div className="rounded-[28px] bg-stage p-4 sm:p-6 md:rounded-[40px] md:p-8">
-          <video
-            ref={ref}
-            className="promo-video mx-auto block w-full rounded-[14px]"
-            muted
-            loop
-            playsInline
-            controls
-            preload="none"
-            aria-label={LABEL}
-          >
-            <source media="(max-width: 767px)" src="/video/allerlens-promo-vertical.mp4" type="video/mp4" />
-            <source src="/video/allerlens-promo.mp4" type="video/mp4" />
-            <track kind="captions" src="/video/allerlens-promo.en.vtt" srcLang="en" label="English" />
-            <track kind="captions" src="/video/allerlens-promo.es.vtt" srcLang="es" label="Español" />
-          </video>
+          <div className="promo-player relative mx-auto">
+            <video
+              ref={videoRef}
+              className="promo-video mx-auto block w-full rounded-[14px]"
+              muted
+              loop
+              playsInline
+              preload="none"
+              aria-label={LABEL}
+            >
+              <source media="(max-width: 767px)" src="/video/allerlens-promo-vertical.mp4" type="video/mp4" />
+              <source src="/video/allerlens-promo.mp4" type="video/mp4" />
+              <track kind="captions" src="/video/allerlens-promo.en.vtt" srcLang="en" label="English" />
+              <track kind="captions" src="/video/allerlens-promo.es.vtt" srcLang="es" label="Español" />
+            </video>
+
+            <button
+              type="button"
+              className="promo-toggle"
+              data-paused={playing ? undefined : ""}
+              aria-label={playing ? "Pause the demo" : "Play the demo"}
+              onClick={toggle}
+            >
+              <span className="promo-toggle-icon">
+                {playing ? <PauseIcon size={24} /> : <PlayIcon size={28} className="translate-x-[2px]" />}
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </section>

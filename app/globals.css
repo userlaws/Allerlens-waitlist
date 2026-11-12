@@ -1133,3 +1133,53 @@ img.demo-layer {
     background-image: url("/video/allerlens-promo-poster.jpg");
   }
 }
+
+/* The promo player (components/see-it-work.tsx): the whole picture is the play/pause button */
+.promo-player {
+  max-width: 320px;
+}
+@media (min-width: 768px) {
+  .promo-player {
+    max-width: none;
+  }
+}
+.promo-toggle {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  cursor: pointer;
+}
+.promo-toggle-icon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--paper);
+  box-shadow: 0 0 0 1px rgb(0 0 0 / 0.06), 0 10px 30px rgb(22 36 42 / 0.25);
+  opacity: 0;
+  scale: 0.9;
+  transition: opacity 0.25s var(--ease-out-app), scale 0.25s var(--ease-out-app);
+}
+.promo-toggle[data-paused] .promo-toggle-icon,
+.promo-toggle:focus-visible .promo-toggle-icon {
+  opacity: 1;
+  scale: 1;
+}
+@media (hover: hover) {
+  .promo-toggle:hover .promo-toggle-icon {
+    opacity: 0.9;
+    scale: 1;
+  }
+}
+.promo-toggle:active .promo-toggle-icon {
+  scale: 0.96;
+}
+@media (prefers-reduced-motion: reduce) {
+  .promo-toggle-icon {
+    transition: none;
+  }
+}
